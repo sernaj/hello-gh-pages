@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="./img/favicon.ico">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Experimenting with MkDocs</title>
+	<title>Limitations of Off-UI Thread Webviews - Experimenting with MkDocs</title>
 
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/highlight.css">
-        <link href="./css/base.css" rel="stylesheet">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -41,7 +41,7 @@
             </button>
 
             <!-- Main title -->
-            <a class="navbar-brand" href=".">Experimenting with MkDocs</a>
+            <a class="navbar-brand" href="../..">Experimenting with MkDocs</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -50,28 +50,28 @@
             <ul class="nav navbar-nav">
             
             
-                <li class="active">
-                    <a href=".">Home</a>
+                <li >
+                    <a href="../..">Home</a>
                 </li>
             
             
             
                 <li >
-                    <a href="about/">About</a>
+                    <a href="../../about/">About</a>
                 </li>
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">How-To <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         <li >
-                            <a href="How-To/webview/">Running Your WebView off the UI Thread</a>
+                            <a href="../webview/">Running Your WebView off the UI Thread</a>
                         </li>
                     
-                        <li >
-                            <a href="How-To/limitations/">Limitations of Off-UI Thread Webviews</a>
+                        <li class="active">
+                            <a href="./">Limitations of Off-UI Thread Webviews</a>
                         </li>
                     
                     </ul>
@@ -82,13 +82,13 @@
 
             <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
-                <li class="disabled">
-                    <a rel="next" >
+                <li >
+                    <a rel="next" href="../webview/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
-                <li >
-                    <a rel="prev" href="about/">
+                <li class="disabled">
+                    <a rel="prev" >
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -102,39 +102,38 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#welcome-to-mkdocs">Welcome to MkDocs</a></li>
+        <li class="main active"><a href="#limitations-of-webviews-off-the-ui-thread">Limitations of WebViews off the UI Thread</a></li>
         
-            <li><a href="#commands">Commands</a></li>
+            <li><a href="#context">Context</a></li>
         
-            <li><a href="#project-layout">Project layout</a></li>
-        
-            <li><a href="#webviews">Webviews</a></li>
+            <li><a href="#limitations">Limitations</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="http://mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<h1 id="limitations-of-webviews-off-the-ui-thread">Limitations of WebViews off the UI Thread</h1>
+<p><strong>Last Updated: 11/8/2015</strong></p>
+<h2 id="context">Context</h2>
+<p>Now you've set your WebView ExecutionMode to <em>SeparateThread</em>, and your app is running smoother than it ever did before. "Gee" you wonder, "Why isn't that the default execution mode?"</p>
+<p>While running WebView content on a background thread is convenient for the page loads to not block the UI thread, there are several limitations that you should keep in mind</p>
+<h2 id="limitations">Limitations</h2>
+<p>The <a href="https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.webviewexecutionmode.aspx">MSDN page</a> for the WebView.ExecutionMode property states that there are the following limitations when the WebView is not on the UI thread:</p>
+<blockquote>
+<p>When the WebView is not on the UI thread, the behaviors listed here are not supported:</p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs help</code> - Print this help message.</li>
+<li>
+<p>Scroll chaining and pointer chaining. (Input events aren't propagated to parent controls that uses DirectManipulation like ScrollViewer or FlipView.)</p>
+</li>
+<li>
+<p>Tab navigation to escape focus on WebView.</p>
+</li>
+<li>
+<p>Printing.</p>
+</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
-<h2 id="webviews">Webviews</h2>
-<ul>
-<li><a href="How-To/webview/">Learn how to host WebView content off the UI thread</a></li>
-<li><a href="How-To/limitations/">Learn about the limitations of setting a different Execution mode</a></li>
-</ul></div>
+</blockquote></div>
         </div>
 
         <footer class="col-md-12">
@@ -143,9 +142,9 @@ docs/
             <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
         </footer>
 
-        <script src="./js/jquery-1.10.2.min.js"></script>
-        <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/highlight.pack.js"></script>
-        <script src="./js/base.js"></script>
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
     </body>
 </html>

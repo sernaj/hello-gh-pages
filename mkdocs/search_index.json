@@ -1,0 +1,79 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.\n\n\n\nWebviews\n\n\n\n\nLearn how to host WebView content off the UI thread\n\n\nLearn about the limitations of setting a different Execution mode", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-mkdocs", 
+            "text": "For full documentation visit  mkdocs.org .", 
+            "title": "Welcome to MkDocs"
+        }, 
+        {
+            "location": "/#commands", 
+            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
+            "title": "Commands"
+        }, 
+        {
+            "location": "/#project-layout", 
+            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "title": "Project layout"
+        }, 
+        {
+            "location": "/#webviews", 
+            "text": "Learn how to host WebView content off the UI thread  Learn about the limitations of setting a different Execution mode", 
+            "title": "Webviews"
+        }, 
+        {
+            "location": "/about/", 
+            "text": "About these pages\n\n\nNo useful content is intended to be provided by this set of docs. It is solely for the purpose of experimenting with using MkDocs to publish a GitHub pages branch for a project.", 
+            "title": "About"
+        }, 
+        {
+            "location": "/about/#about-these-pages", 
+            "text": "No useful content is intended to be provided by this set of docs. It is solely for the purpose of experimenting with using MkDocs to publish a GitHub pages branch for a project.", 
+            "title": "About these pages"
+        }, 
+        {
+            "location": "/How-To/webview/", 
+            "text": "Webviews off of the UI Thread\n\n\nLast Updated: 11/8/2015\n\n\nContext\n\n\nBy default, Webview elements in XAML run on the UI thread. For some purposes, this may be acceptable, but oftentimes, when hosting web content, you will want the webview to host its content on a background thread, off the UI thread.\n\n\nFor instance, the webview may only be a small portion of the larger page. When the webview is loading content, it may be desirable to have the user continue being able to interact with the app UI. In Windows 10, the \nWebview.ExecutionMode\n property allows you to do just that. \n\n\nCode Sample\n\n\nCurrently, two execution modes are supported \nSameThread\n and \nSeparateThread\n. Naturally, the values are as you would expect: \nSameThread\n essentially means the UI Thread and \nSeparateThread\n means a non-UI background thread. The default is \nSameThread\n. To create a webview instance with a \nSameThread\n execution mode, you may specify the following in the constructor:\n\n\nWebView webview = new WebView(WebViewExecutionMode.SeparateThread);\n\n\n\n\nOf course, the above assumes you're creating your WebView in the code behind rather than the XAML markup. The same line of code in more context might be something like:\n\n\n_webview = new WebView(WebViewExecutionMode.SeparateThread);\n_webview.HorizontalAlignment = HorizontalAlignment.Stretch;\n_webview.VerticalAlignment = VerticalAlignment.Stretch;\n\nMainGrid.Children.Add(_webview);\n\n\n\n\nThe relevant piece of XAML markup might look something like:\n\n\nGrid HorizontalAlignment=\nStretch\n VerticalAlignment=\nStretch\n\n    \nGrid Name=\nMainGrid\n \n          HorizontalAlignment=\nStretch\n \n          VerticalAlignment=\nStretch\n     \n    \n/Grid\n\n\n/Grid\n\n\n\n\n\nTo learn about the limitations of hosting webview content off the UI thread, click \nhere\n.", 
+            "title": "Running Your WebView off the UI Thread"
+        }, 
+        {
+            "location": "/How-To/webview/#webviews-off-of-the-ui-thread", 
+            "text": "Last Updated: 11/8/2015", 
+            "title": "Webviews off of the UI Thread"
+        }, 
+        {
+            "location": "/How-To/webview/#context", 
+            "text": "By default, Webview elements in XAML run on the UI thread. For some purposes, this may be acceptable, but oftentimes, when hosting web content, you will want the webview to host its content on a background thread, off the UI thread.  For instance, the webview may only be a small portion of the larger page. When the webview is loading content, it may be desirable to have the user continue being able to interact with the app UI. In Windows 10, the  Webview.ExecutionMode  property allows you to do just that.", 
+            "title": "Context"
+        }, 
+        {
+            "location": "/How-To/webview/#code-sample", 
+            "text": "Currently, two execution modes are supported  SameThread  and  SeparateThread . Naturally, the values are as you would expect:  SameThread  essentially means the UI Thread and  SeparateThread  means a non-UI background thread. The default is  SameThread . To create a webview instance with a  SameThread  execution mode, you may specify the following in the constructor:  WebView webview = new WebView(WebViewExecutionMode.SeparateThread);  Of course, the above assumes you're creating your WebView in the code behind rather than the XAML markup. The same line of code in more context might be something like:  _webview = new WebView(WebViewExecutionMode.SeparateThread);\n_webview.HorizontalAlignment = HorizontalAlignment.Stretch;\n_webview.VerticalAlignment = VerticalAlignment.Stretch;\n\nMainGrid.Children.Add(_webview);  The relevant piece of XAML markup might look something like:  Grid HorizontalAlignment= Stretch  VerticalAlignment= Stretch \n     Grid Name= MainGrid  \n          HorizontalAlignment= Stretch  \n          VerticalAlignment= Stretch      \n     /Grid  /Grid   To learn about the limitations of hosting webview content off the UI thread, click  here .", 
+            "title": "Code Sample"
+        }, 
+        {
+            "location": "/How-To/limitations/", 
+            "text": "Limitations of WebViews off the UI Thread\n\n\nLast Updated: 11/8/2015\n\n\nContext\n\n\nNow you've set your WebView ExecutionMode to \nSeparateThread\n, and your app is running smoother than it ever did before. \"Gee\" you wonder, \"Why isn't that the default execution mode?\"\n\n\nWhile running WebView content on a background thread is convenient for the page loads to not block the UI thread, there are several limitations that you should keep in mind\n\n\nLimitations\n\n\nThe \nMSDN page\n for the WebView.ExecutionMode property states that there are the following limitations when the WebView is not on the UI thread:\n\n\n\n\nWhen the WebView is not on the UI thread, the behaviors listed here are not supported:\n\n\n\n\n\n\nScroll chaining and pointer chaining. (Input events aren't propagated to parent controls that uses DirectManipulation like ScrollViewer or FlipView.)\n\n\n\n\n\n\nTab navigation to escape focus on WebView.\n\n\n\n\n\n\nPrinting.", 
+            "title": "Limitations of Off-UI Thread Webviews"
+        }, 
+        {
+            "location": "/How-To/limitations/#limitations-of-webviews-off-the-ui-thread", 
+            "text": "Last Updated: 11/8/2015", 
+            "title": "Limitations of WebViews off the UI Thread"
+        }, 
+        {
+            "location": "/How-To/limitations/#context", 
+            "text": "Now you've set your WebView ExecutionMode to  SeparateThread , and your app is running smoother than it ever did before. \"Gee\" you wonder, \"Why isn't that the default execution mode?\"  While running WebView content on a background thread is convenient for the page loads to not block the UI thread, there are several limitations that you should keep in mind", 
+            "title": "Context"
+        }, 
+        {
+            "location": "/How-To/limitations/#limitations", 
+            "text": "The  MSDN page  for the WebView.ExecutionMode property states that there are the following limitations when the WebView is not on the UI thread:   When the WebView is not on the UI thread, the behaviors listed here are not supported:    Scroll chaining and pointer chaining. (Input events aren't propagated to parent controls that uses DirectManipulation like ScrollViewer or FlipView.)    Tab navigation to escape focus on WebView.    Printing.", 
+            "title": "Limitations"
+        }
+    ]
+}
